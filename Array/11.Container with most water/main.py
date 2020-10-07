@@ -14,12 +14,19 @@ Notice that you may not slant the container.
 """
 
 class Solution:
-    def maxArea(self, height: List[int]) -> int:
-        fast = low = 0
-        res  = 0
+    def maxArea(self, height):
         len_arr = len(height)
-        while(fast<len_arr):
+        right,left = len_arr-1,0
+        res  = 0
+        while(left<right):
+            res = max(res, (right-left)*min(height[left],height[right]))
+            if height[left] < height[right]:
+                left += 1
+            else:
+                right -=1
+        return res
             
+
 
 
 
