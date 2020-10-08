@@ -28,14 +28,35 @@ class Solution(object):
         :type target: int
         :rtype: int
         """
-        res = -1
         left,right = 0, len(nums)-1
-        while(left < right):
-            if nums[left] == target:
-                return left
-            elif nums[right] == target:
-                return right
+        while(left <= right):
             mid = (left+right)//2
+            if nums[mid] == target:
+                return mid
+            if nums[left] <= nums[right]:
+                # sorted seq
+                if nums[mid] > target:
+                    right = mid - 1
+                else:
+                    left = mid + 1
+            else:
+                if target < nums[left] and target > nums[right]:
+                    return -1
+                if nums[mid] >= nums[left]:
+                    if target > nums[mid] or target <= nums[right]:
+                        left = mid+1
+                    else:
+                        right = mid-1
+                else:
+                    if target < nums[mid] or target >= nums[left]:
+                        right = mid-1
+                    else:
+                        left = mid+1
+
+        return -1
+
+
+
 
 
         
