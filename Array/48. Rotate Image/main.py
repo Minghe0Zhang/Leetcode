@@ -12,6 +12,7 @@ class Solution(object):
         :rtype: None Do not return anything, modify matrix in-place instead.
         """
         # matrix = matrix[::-1] # Use this is not in-place!!!
+        # The right way is: matrix[:] = matrix[::-1]
         matrix.reverse()
         for i in range(len(matrix)):
             for j in range(i):
@@ -19,7 +20,7 @@ class Solution(object):
                 # tmp = matrix[i][j]
                 # matrix[i][j] = matrix[j][i]
                 # matrix[j][i] = tmp
-                
+
         print(matrix)
         
 
