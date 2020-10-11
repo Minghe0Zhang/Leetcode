@@ -45,34 +45,41 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        length  = len(nums)
-        if length<=2:
-            return length
-        left, right = 0,1
-        count       = 1
-        flag_two    = False
-        while(right < length):
-            if(nums[left]!=nums[right]):
-                if flag_two == False:
-                    nums[left+1] = nums[right]
-                    left, right = left+1, right+1
-                    count += 1
-                else:
-                    left += 1
-                    nums[left] = nums[right]
-                    right += 1
-                    count += 1
-                    flag_two = False
-            else:
-                if not flag_two:
-                    flag_two = True
-                    nums[left+1] = nums[right]
-                    left, right = left+1, right+1
-                    count += 1
-                else:
-                    right += 1
-        return count
+        # length  = len(nums)
+        # if length<=2:
+        #     return length
+        # left, right = 0,1
+        # count       = 1
+        # flag_two    = False
+        # while(right < length):
+        #     if(nums[left]!=nums[right]):
+        #         if flag_two == False:
+        #             nums[left+1] = nums[right]
+        #             left, right = left+1, right+1
+        #             count += 1
+        #         else:
+        #             left += 1
+        #             nums[left] = nums[right]
+        #             right += 1
+        #             count += 1
+        #             flag_two = False
+        #     else:
+        #         if not flag_two:
+        #             flag_two = True
+        #             nums[left+1] = nums[right]
+        #             left, right = left+1, right+1
+        #             count += 1
+        #         else:
+        #             right += 1
+        # return count
             
+        i = 0
+        for j in range(2, len(nums)):
+            if nums[i] != nums[j]:
+                nums[i + 2] = nums[j]
+                i += 1
+        # i 指向最后一个被交换的元素
+        return i + 2
 
 
 
