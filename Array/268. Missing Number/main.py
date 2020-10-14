@@ -38,6 +38,9 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        length = len(nums)
+        sum_complete = (1+length)*length/2
+        return int(sum_complete-sum(nums))
         
             
         
@@ -47,6 +50,6 @@ class Solution(object):
 if __name__ == "__main__":
     nums = [9,6,4,2,3,5,7,0,1]
     sol = Solution()
-    res = sol.missingNumber(matrix, target)
+    res = sol.missingNumber(nums)
     print(res) 
     
