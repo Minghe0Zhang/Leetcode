@@ -38,10 +38,10 @@ class Solution(object):
         """
         row_maxes = [max(row) for row in grid]
         col_maxes = [max(col) for col in zip(*grid)]
-
-        return sum(min(row_maxes[r], col_maxes[c]) - val
+        
+        return sum([min(row_maxes[r], col_maxes[c]) - val
                    for r, row in enumerate(grid)
-                   for c, val in enumerate(row))
+                   for c, val in enumerate(row)])
 
         
             
@@ -53,7 +53,7 @@ if __name__ == "__main__":
             [9, 2, 6, 3],
             [0, 3, 1, 0] ]
     sol = Solution()
-
+    # print(sum(grid))
     res = sol.maxIncreaseKeepingSkyline(grid)
     print(res) 
     
