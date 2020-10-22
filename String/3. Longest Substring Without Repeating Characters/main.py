@@ -40,7 +40,7 @@ class Solution(object):
             if s[i] not in s_dict:
                 s_dict[s[i]] = i
             else:
-                if start < s_dict[s[i]]:
+                if start <= s_dict[s[i]]:
                     start = s_dict[s[i]]+1
                 s_dict[s[i]] = i
             max_len = max(max_len, i-start+1)
