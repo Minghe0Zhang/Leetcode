@@ -30,11 +30,31 @@ class Solution(object):
         :type l2: ListNode
         :rtype: ListNode
         """
+        ans  = ListNode(0)
+        head = ans
+        add = 0
+        while(l1 is not None and l2 is not None):
+            ans.next = ListNode((l1.val+l2.val+add)%10)
+            add      = (l1.val+l2.val+add)//10
+            l1       = l1.next
+            l2       = l2.next
+            ans      = ans.next
+        while(l1 is not None):
+            ans.next = ListNode((l1.val+add)%10)
+            add      = (l1.val+add)//10
+            l1       = l1.next
+            ans      = ans.next
+
+        while(l2 is not None):
+            ans.next = ListNode((l2.val+add)%10)
+            add      = (l2.val+add)//10
+            l2       = l2.next
+            ans      = ans.next
+        
+        if(add==1):
+            ans.next = ListNode(1)
+        
+        return head.next
         
         
 
-if __name__ == "__main__":
-    x = -121
-    sol = Solution()
-    res = sol.isPalindrome(x)
-    print(res)
