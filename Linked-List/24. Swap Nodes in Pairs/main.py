@@ -29,3 +29,15 @@ class Solution(object):
             cur        = cur.next.next
             
         return ans.next
+
+        # # recursion
+        # if head is None or head.next is None:
+        #     return head
+
+        # first_node = head
+        # second_node = head.next
+
+        # first_node.next = self.swapPairs(second_node.next)
+        # second_node.next = first_node
+
+        # return second_node
