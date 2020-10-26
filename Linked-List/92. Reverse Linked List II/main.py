@@ -22,4 +22,30 @@ class Solution(object):
         :type n: int
         :rtype: ListNode
         """
+        if not head or not head.next or m==n:
+            return head
+        pre = None
+        cur = head
+        cnt = 1
+        while(cnt < m):
+            pre = cur
+            cur = cur.next
+            cnt += 1
         
+        before = pre
+        after  = cur
+        pre = cur
+        cur = cur.next
+        
+        while(cnt < n):
+            temp = cur.next
+            cur.next = pre
+            pre  = cur
+            cur  = temp
+            cnt  += 1
+        if before == None:
+            after.next  = cur
+            return pre
+        before.next = pre
+        after.next  = cur
+        return head
