@@ -30,8 +30,8 @@ class Solution(object):
 
         cur_head = head
         while cur_head:
-            label = cur_head.label
-            new_node = RandomListNode(label)
+            label = cur_head.val
+            new_node = Node(label)
             new_node.next = cur_head.next
             cur_head.next = new_node
             cur_head = new_node.next
@@ -45,7 +45,7 @@ class Solution(object):
 
         cur_head = head
         new_head = head.next
-        while cur_head is not None and cur_head.next:
+        while cur_head and cur_head.next:
             next_node = cur_head.next
             cur_head.next = next_node.next
             cur_head = next_node
